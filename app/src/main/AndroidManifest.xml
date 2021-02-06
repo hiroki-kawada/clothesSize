@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClothesSize">
-        <activity android:name=".MainActivity">
+        <activity android:name=".presenters.BrandListActivity"></activity>
+        <activity android:name=".presenters.AnthropometryActivity" />
+        <activity android:name=".presenters.TopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
