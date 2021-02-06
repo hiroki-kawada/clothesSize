@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "202707709868",
+    "project_id": "clothessize-74a6d",
+    "storage_bucket": "clothessize-74a6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202707709868:android:ee654644b41459bb379409",
+        "android_client_info": {
+          "package_name": "com.example.clothessize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202707709868-afvbqppeq89cklppkou6imonsqpf3ms7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4h8bY7RaFyRFM8U_JrnFiEmlbKXpOEY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202707709868-afvbqppeq89cklppkou6imonsqpf3ms7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

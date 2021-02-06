@@ -3,13 +3,17 @@
     package="com.example.clothessize">
 
     <application
+        android:name=".ClothesSizeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClothesSize">
-        <activity android:name=".MainActivity">
+        <activity android:name=".presenters.MeasurementActivity"></activity>
+        <activity android:name=".presenters.BrandListActivity" />
+        <activity android:name=".presenters.AnthropometryActivity" />
+        <activity android:name=".presenters.TopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
