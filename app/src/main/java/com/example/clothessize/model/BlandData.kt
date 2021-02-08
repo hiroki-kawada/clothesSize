@@ -1,4 +1,4 @@
 package com.example.clothessize.model
 
-class AnthropometryViewModel {
+class BlandData {
 }
