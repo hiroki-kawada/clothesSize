@@ -52,4 +52,13 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:2.1.5"
     implementation "org.koin:koin-androidx-viewmodel:2.1.5"
     implementation "org.koin:koin-androidx-ext:2.1.5"
+
+    //room
+    implementation "androidx.room:room-runtime:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.2.6"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:2.2.6"
 }
