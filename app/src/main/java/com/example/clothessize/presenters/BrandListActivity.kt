@@ -19,7 +19,7 @@ class BrandListActivity : AppCompatActivity() {
     private val binding: ActivityBrandListBinding by lazy {
         DataBindingUtil.inflate<ActivityBrandListBinding>(
             layoutInflater,
-            R.layout.activity_anthropometry,
+            R.layout.activity_brand_list,
             null,
             false
         ).also {
