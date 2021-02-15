@@ -1,9 +1,11 @@
 package com.example.clothessize.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity(tableName = "anthropomentry")
-data class AnthropomentryData(
+@Entity(tableName = "size_table")
+data class SizeData(
+    @PrimaryKey val id: Int,
     val shoulder_width: Int,      //肩幅
     val sleeve_length: Int,   //袖丈
     val chest_circumference: Int,   //胸囲
