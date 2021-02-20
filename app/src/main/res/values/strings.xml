@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">clothesSize</string>
+
+    <!-- Top画面-->
+    <string name="top_anthropometry">身体測定</string>
+    <string name="top_brand_list">ブランド一覧</string>
+
+    <!-- 身体測定画面-->
+    <string name="shoulder_width">肩幅</string>
+    <string name="sleeve_length">袖丈</string>
+    <string name="chest_circumference">胸囲</string>
+    <string name="dress_length">着丈</string>
+    <string name="west">ウエスト</string>
+    <string name="hips">ヒップ</string>
+    <string name="rise">股上</string>
+    <string name="inseam">股下</string>
+    <string name="thigh">ワタリ</string>
+    <string name="hem_length">裾丈</string>
+    <string name="anthropometry_button">サイズ決定</string>
 </resources>
