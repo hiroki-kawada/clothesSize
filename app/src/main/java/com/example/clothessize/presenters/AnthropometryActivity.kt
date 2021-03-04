@@ -7,6 +7,8 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.clothessize.R
 import com.example.clothessize.databinding.ActivityAnthropometryBinding
+import com.example.clothessize.presenters.viewmodel.AnthropometryViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AnthropometryActivity : AppCompatActivity() {
 
@@ -16,6 +18,7 @@ class AnthropometryActivity : AppCompatActivity() {
 
     }
 
+    private val anthropometryViewModel: AnthropometryViewModel by viewModel()
 
     private val binding: ActivityAnthropometryBinding by lazy {
         DataBindingUtil.inflate<ActivityAnthropometryBinding>(
@@ -25,6 +28,7 @@ class AnthropometryActivity : AppCompatActivity() {
             false
         ).also {
             it.lifecycleOwner = this
+            it.viewModel = anthropometryViewModel
         }
     }
 

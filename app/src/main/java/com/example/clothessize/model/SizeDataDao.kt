@@ -7,15 +7,15 @@ import androidx.room.*
 interface SizeDataDao {
 
     @Insert
-    fun insert(sizeData: SizeData)
+    suspend fun insert(sizeData: SizeData)
 
     @Update
-    fun update(sizeData: SizeData)
+    suspend fun update(sizeData: SizeData)
 
     @Delete
-    fun delete(sizeData: SizeData)
+    suspend  fun delete(sizeData: SizeData)
 
 
     @Query("SELECT * FROM size_table")
-    fun getAll(): LiveData<List<SizeData>>
+    suspend fun getAll(): List<SizeData>
 }
