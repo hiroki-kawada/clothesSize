@@ -10,6 +10,7 @@ class AnthropometryRepository(private val dao: SizeDataDao) {
 
 
     suspend fun setSizeData(sizeData: SizeData) {
-        dao.update(sizeData)
+        dao.deleteAll()
+        dao.insert(sizeData)
     }
 }

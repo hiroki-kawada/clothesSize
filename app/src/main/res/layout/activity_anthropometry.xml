@@ -35,7 +35,9 @@
                     android:id="@+id/shoulder_width_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
@@ -51,7 +53,9 @@
                         android:id="@+id/shoulder_width"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
                         android:text="@={viewModel.shoulderWidth}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +69,9 @@
                     android:id="@+id/sleeve_length_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/shoulder_width_layout">
 
                     <TextView
@@ -81,7 +87,10 @@
                         android:id="@+id/sleeve_length"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.sleeveLength}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +103,9 @@
                     android:id="@+id/chest_circumference_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/sleeve_length_layout">
 
 
@@ -111,7 +122,10 @@
                         android:id="@+id/chest_circumference"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.chestCircumference}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -124,7 +138,9 @@
                     android:id="@+id/dress_length_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/chest_circumference_layout">
 
 
@@ -141,7 +157,10 @@
                         android:id="@+id/dress_length"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.dressLength}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +173,9 @@
                     android:id="@+id/west_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/dress_length_layout">
 
 
@@ -171,7 +192,10 @@
                         android:id="@+id/west"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.west}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +208,9 @@
                     android:id="@+id/hips_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/west_layout">
 
 
@@ -201,7 +227,10 @@
                         android:id="@+id/hips"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.hips}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -214,7 +243,9 @@
                     android:id="@+id/rise_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/hips_layout">
 
 
@@ -231,7 +262,10 @@
                         android:id="@+id/rise"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.rise}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -244,7 +278,9 @@
                     android:id="@+id/inseam_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/rise_layout">
 
                     <TextView
@@ -260,7 +296,10 @@
                         android:id="@+id/inseam"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.inseam}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -273,7 +312,9 @@
                     android:id="@+id/thigh_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/inseam_layout">
 
 
@@ -290,7 +331,10 @@
                         android:id="@+id/thigh"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.thigh}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -303,7 +347,9 @@
                     android:id="@+id/hem_length_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/thigh_layout">
 
 
@@ -320,7 +366,10 @@
                         android:id="@+id/hem_length"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rounded_edit_text"
                         android:inputType="number"
+                        android:maxLength="3"
+                        android:text="@={viewModel.hemLength}"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -339,6 +388,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="10dp"
+            android:onClick="@{() -> viewModel.confirmationSizeData()}"
             android:text="@string/anthropometry_button"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

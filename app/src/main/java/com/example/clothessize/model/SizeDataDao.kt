@@ -12,9 +12,8 @@ interface SizeDataDao {
     @Update
     suspend fun update(sizeData: SizeData)
 
-    @Delete
-    suspend  fun delete(sizeData: SizeData)
-
+    @Query("DELETE FROM size_table")
+    fun deleteAll()
 
     @Query("SELECT * FROM size_table")
     suspend fun getAll(): List<SizeData>
