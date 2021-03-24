@@ -1,4 +1,4 @@
-package com.example.clothessize
+package com.example.clothessize.repository
 
 import com.example.clothessize.model.SizeData
 import com.example.clothessize.model.SizeDataDao

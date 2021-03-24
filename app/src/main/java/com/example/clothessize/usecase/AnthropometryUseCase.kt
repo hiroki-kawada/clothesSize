@@ -1,5 +1,6 @@
-package com.example.clothessize
+package com.example.clothessize.usecase
 
+import com.example.clothessize.repository.AnthropometryRepository
 import com.example.clothessize.model.SizeData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

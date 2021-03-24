@@ -1,10 +1,9 @@
 package com.example.clothessize.presenters.viewmodel
 
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.clothessize.AnthropometryUseCase
+import com.example.clothessize.usecase.AnthropometryUseCase
 import com.example.clothessize.model.SizeData
 import kotlinx.coroutines.launch
 
