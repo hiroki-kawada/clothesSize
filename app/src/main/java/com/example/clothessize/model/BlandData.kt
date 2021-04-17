@@ -1,4 +1,6 @@
 package com.example.clothessize.model
 
-class BlandData {
-}
+data class BlandData(
+    var brand_key: String? = "",
+    var brand_name: String? = ""
+)
