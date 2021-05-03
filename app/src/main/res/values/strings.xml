@@ -17,4 +17,9 @@
     <string name="thigh">ワタリ</string>
     <string name="hem_length">裾丈</string>
     <string name="anthropometry_button">サイズ決定</string>
+
+    <!-- 計測画面-->
+    <string name="measurement_button_text">計測開始</string>
+
+
 </resources>

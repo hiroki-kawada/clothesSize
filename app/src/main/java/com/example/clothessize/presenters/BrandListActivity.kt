@@ -8,13 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.example.clothessize.R
 import com.example.clothessize.databinding.ActivityBrandListBinding
 import com.example.clothessize.model.BlandData
 import com.example.clothessize.presenters.adapter.BrandListAdapter
-import com.example.clothessize.presenters.viewmodel.AnthropometryViewModel
 import com.example.clothessize.presenters.viewmodel.BrandListViewModel
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -61,12 +58,18 @@ class BrandListActivity : AppCompatActivity() {
                 val brandData = item.getValue(BlandData::class.java)
                 if (brandData != null) {
                     brandArray.add(brandData)
-                    brandListAdapter.submitList(brandArray)
                 }
             }
+            brandListAdapter.submitList(brandArray)
         }.addOnFailureListener {
             Log.i("firebase_brand_list", "Got value ${it}")
         }
+
+        brandListViewModel.getShowMeasurementEvent().observe(this, Observer {
+            //計測画面に画面遷移
+            val intent = it.brand_key?.let { it1 -> MeasurementActivity.newInstance(this, it1) }
+            startActivity(intent)
+        })
     }
 
     override fun onResume() {
