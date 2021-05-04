@@ -6,12 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.clothessize.R
 import com.example.clothessize.databinding.ActivityMeasurementBinding
 import com.example.clothessize.model.BlandData
 import com.example.clothessize.model.CategoryData
+import com.example.clothessize.model.LowerBodyData
+import com.example.clothessize.model.UpperBodyData
 import com.example.clothessize.presenters.viewmodel.MeasurementViewModel
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -57,9 +60,11 @@ class MeasurementActivity : AppCompatActivity() {
         binding.upperBody.visibility = View.GONE
         binding.lowerBody.visibility = View.GONE
 
+        measurementViewModel.getSizeData()
+
         if (text.isNullOrBlank()) {
-            val categoryUpperBodyData = CategoryData("上半身", "upper_body", 0)
-            val categoryLowerBodyData = CategoryData("下半身", "lower_body", 1)
+            val categoryUpperBodyData = CategoryData("上半身", "upper_body", 1)
+            val categoryLowerBodyData = CategoryData("下半身", "lower_body", 0)
             measurementViewModel.categoryArray.add(categoryUpperBodyData)
             measurementViewModel.categoryArray.add(categoryLowerBodyData)
             binding.sizeRadioGroup.visibility = View.GONE
@@ -79,6 +84,35 @@ class MeasurementActivity : AppCompatActivity() {
                 R.id.siz_xl_radio_button -> {
                     sizeCode = "xl"
                 }
+            }
+        })
+
+        measurementViewModel.measurementResultLowerBodyMessage.observe(this, Observer {
+            // BuilderからAlertDialogを作成
+            if (!it.isNullOrBlank()) {
+                val dialog = AlertDialog.Builder(this)
+                    .setTitle("結果") // タイトル
+                    .setMessage(it) // メッセージ
+                    .setNegativeButton("閉じる") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .create()
+                // AlertDialogを表示
+                dialog.show()
+            }
+        })
+        measurementViewModel.measurementResultUpperBodyMessage.observe(this, Observer {
+            // BuilderからAlertDialogを作成
+            if (!it.isNullOrBlank()) {
+                val dialog = AlertDialog.Builder(this)
+                    .setTitle("結果") // タイトル
+                    .setMessage(it) // メッセージ
+                    .setNegativeButton("閉じる") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .create()
+                // AlertDialogを表示
+                dialog.show()
             }
         })
 
@@ -117,15 +151,28 @@ class MeasurementActivity : AppCompatActivity() {
                     StringBuilder().append(categoryData.size_key).append("_").append(sizeCode)
                 database.child("clothing_size").child(keyCategory).child(categorySizeKey.toString())
                     .get().addOnSuccessListener {
-                        Log.i("firebase", "Got value ${it.value}")
+                        Log.d("firebase", "Got value ${it.value}")
 
+                        if (categoryData.category_key == 0) {
+                            //下半身カテゴリー
+                            val lowerBodyData = it.getValue(LowerBodyData::class.java)
+                            if (lowerBodyData != null) {
+                                measurementViewModel.measurementLowerBodyData(lowerBodyData)
+                            }
+
+                        } else {
+                            //上半身カテゴリー
+                            val upperBodyData = it.getValue(UpperBodyData::class.java)
+                            if (upperBodyData != null) {
+                                measurementViewModel.measurementUpperBodyData(upperBodyData)
+                            }
+                        }
 
                     }.addOnFailureListener {
                         Log.i("firebase_brand_list", "Got value ${it}")
                     }
             }
         }
-
-
     }
+
 }
