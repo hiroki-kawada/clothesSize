@@ -37,15 +37,15 @@ class AnthropometryViewModel(
             if (listSizeData.isNotEmpty()) {
                 val sizeData = listSizeData[0]
                 shoulderWidth.value = sizeData.shoulder_width.toString()
-                sleeveLength.value = sizeData.shoulder_width.toString()
-                chestCircumference.value = sizeData.shoulder_width.toString()
-                dressLength.value = sizeData.shoulder_width.toString()
-                west.value = sizeData.shoulder_width.toString()
-                hips.value = sizeData.shoulder_width.toString()
-                rise.value = sizeData.shoulder_width.toString()
-                inseam.value = sizeData.shoulder_width.toString()
-                thigh.value = sizeData.shoulder_width.toString()
-                hemLength.value = sizeData.shoulder_width.toString()
+                sleeveLength.value = sizeData.sleeve_length.toString()
+                chestCircumference.value = sizeData.chest_circumference.toString()
+                dressLength.value = sizeData.dress_length.toString()
+                west.value = sizeData.west.toString()
+                hips.value = sizeData.hips.toString()
+                rise.value = sizeData.rise.toString()
+                inseam.value = sizeData.inseam.toString()
+                thigh.value = sizeData.thigh.toString()
+                hemLength.value = sizeData.hem_length.toString()
             }
         }
     }
