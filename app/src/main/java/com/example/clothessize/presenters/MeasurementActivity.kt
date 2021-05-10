@@ -52,17 +52,19 @@ class MeasurementActivity : AppCompatActivity() {
         }
     }
 
+    lateinit var text: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val database = Firebase.database.reference
-        val text = intent.getStringExtra(BLAND_DATA)
+        text = intent.getStringExtra(BLAND_DATA).toString()
         binding.upperBody.visibility = View.GONE
         binding.lowerBody.visibility = View.GONE
 
         measurementViewModel.getSizeData()
 
-        if (text.isNullOrBlank()) {
+        if (text.isBlank()) {
             val categoryUpperBodyData = CategoryData("上半身", "upper_body", 1)
             val categoryLowerBodyData = CategoryData("下半身", "lower_body", 0)
             measurementViewModel.categoryArray.add(categoryUpperBodyData)
@@ -121,7 +123,7 @@ class MeasurementActivity : AppCompatActivity() {
             readmeFragment.show(supportFragmentManager, "")
         }
 
-        if (!text.isNullOrBlank()) {
+        if (!text.isBlank()) {
             database.child("clothing_category").child(text).get().addOnSuccessListener {
                 Log.i("firebase", "Got value ${it.value}")
                 for (item in it.children) {
@@ -141,36 +143,50 @@ class MeasurementActivity : AppCompatActivity() {
             if (categoryData == null) {
                 return@setOnClickListener
             } else {
-                val keyCategory = if (categoryData.category_key == 0) {
-                    "lower_body"
+
+                if (text.isBlank()) {
+
+                    if (categoryData.category_key == 0) {
+                        //下半身データ
+                    } else {
+                        //上半身データ
+                    }
+
+
                 } else {
-                    "upper_body"
-                }
+                    val keyCategory = if (categoryData.category_key == 0) {
+                        "lower_body"
+                    } else {
+                        "upper_body"
+                    }
+                    val categorySizeKey =
+                        StringBuilder().append(categoryData.size_key).append("_").append(sizeCode)
+                    database.child("clothing_size").child(keyCategory)
+                        .child(categorySizeKey.toString())
+                        .get().addOnSuccessListener {
+                            Log.d("firebase", "Got value ${it.value}")
 
-                val categorySizeKey =
-                    StringBuilder().append(categoryData.size_key).append("_").append(sizeCode)
-                database.child("clothing_size").child(keyCategory).child(categorySizeKey.toString())
-                    .get().addOnSuccessListener {
-                        Log.d("firebase", "Got value ${it.value}")
+                            if (categoryData.category_key == 0) {
+                                //下半身カテゴリー
+                                val lowerBodyData = it.getValue(LowerBodyData::class.java)
+                                if (lowerBodyData != null) {
+                                    measurementViewModel.measurementLowerBodyData(lowerBodyData)
+                                }
 
-                        if (categoryData.category_key == 0) {
-                            //下半身カテゴリー
-                            val lowerBodyData = it.getValue(LowerBodyData::class.java)
-                            if (lowerBodyData != null) {
-                                measurementViewModel.measurementLowerBodyData(lowerBodyData)
+                            } else {
+                                //上半身カテゴリー
+                                val upperBodyData = it.getValue(UpperBodyData::class.java)
+                                if (upperBodyData != null) {
+                                    measurementViewModel.measurementUpperBodyData(upperBodyData)
+                                }
                             }
 
-                        } else {
-                            //上半身カテゴリー
-                            val upperBodyData = it.getValue(UpperBodyData::class.java)
-                            if (upperBodyData != null) {
-                                measurementViewModel.measurementUpperBodyData(upperBodyData)
-                            }
+                        }.addOnFailureListener {
+                            Log.i("firebase_brand_list", "Got value ${it}")
                         }
 
-                    }.addOnFailureListener {
-                        Log.i("firebase_brand_list", "Got value ${it}")
-                    }
+                }
+
             }
         }
     }
