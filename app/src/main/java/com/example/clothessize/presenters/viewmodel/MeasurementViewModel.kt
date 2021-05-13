@@ -55,6 +55,28 @@ class MeasurementViewModel(
         }
     }
 
+    fun measurementLowerBodyData() {
+        val lowerBodyData = LowerBodyData(
+            west = west.value?.toInt() ?: 0,
+            hips = hips.value?.toInt() ?: 0,
+            rise = rise.value?.toInt() ?: 0,
+            inseam = inseam.value?.toInt() ?: 0,
+            thigh = thigh.value?.toInt() ?: 0,
+            hem_length = hemLength.value?.toInt() ?: 0
+        )
+        measurementLowerBodyData(lowerBodyData)
+    }
+
+    fun measurementUpperBodyData() {
+        val upperBodyData = UpperBodyData(
+            shoulder_width = shoulderWidth.value?.toInt() ?: 0,
+            sleeve_length = sleeveLength.value?.toInt() ?: 0,
+            chest_circumference = chestCircumference.value?.toInt() ?: 0,
+            dress_length = dressLength.value?.toInt() ?: 0
+        )
+        measurementUpperBodyData(upperBodyData)
+    }
+
     /**
      * 下半身計測
      */

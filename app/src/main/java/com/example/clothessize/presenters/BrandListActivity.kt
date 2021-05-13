@@ -60,6 +60,7 @@ class BrandListActivity : AppCompatActivity() {
                     brandArray.add(brandData)
                 }
             }
+            brandArray.add(BlandData("", "ブランド名なし"))
             brandListAdapter.submitList(brandArray)
         }.addOnFailureListener {
             Log.i("firebase_brand_list", "Got value ${it}")

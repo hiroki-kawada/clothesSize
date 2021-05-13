@@ -89,6 +89,23 @@ class MeasurementActivity : AppCompatActivity() {
             }
         })
 
+        measurementViewModel.selectCategory.observe(this, Observer {
+            if (text.isBlank()) {
+                val name = it.category_name ?: ""
+                if (!name.isBlank()) {
+                    if (it.category_key == 1) {
+                        binding.upperBody.visibility = View.VISIBLE
+                        binding.lowerBody.visibility = View.GONE
+                    } else {
+                        binding.upperBody.visibility = View.GONE
+                        binding.lowerBody.visibility = View.VISIBLE
+                    }
+                }
+
+
+            }
+        })
+
         measurementViewModel.measurementResultLowerBodyMessage.observe(this, Observer {
             // BuilderからAlertDialogを作成
             if (!it.isNullOrBlank()) {
@@ -143,13 +160,14 @@ class MeasurementActivity : AppCompatActivity() {
             if (categoryData == null) {
                 return@setOnClickListener
             } else {
-
                 if (text.isBlank()) {
 
                     if (categoryData.category_key == 0) {
                         //下半身データ
+                        measurementViewModel.measurementLowerBodyData()
                     } else {
                         //上半身データ
+                        measurementViewModel.measurementUpperBodyData()
                     }
 
 
